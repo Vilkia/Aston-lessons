@@ -1,32 +1,47 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
     public static void main(String[] args) {
-    Task1 task1 = new Task1();
-    Task1.printThreeWords();
+        System.out.println("Задание 1:");
+        Tasks.printThreeWords();
 
-    Task2 task2 = new Task2();
-    Task2.checkSumSign();
+        System.out.println("Задание 2:");
+        Tasks.checkSumSign();
 
-    Task3 task3 = new Task3();
-    Task3.printColor();
+        System.out.println("Задание 3:");
+        Tasks.printColor();
 
-    Task4 task4 = new Task4();
-    Task4.compareNumbers();
+        System.out.println("Задание 4:");
+        Tasks.compareNumbers();
 
-    Task5 task5 = new Task5();
-    Task5.checkSum();
+        System.out.println("Задание 5:");
+        Tasks.checkSum(7,8);
 
-    Task6 task6 = new Task6();
-    Task6.checkNumb(6);
+        System.out.println("Задание 6:");
+        Tasks.checkNumb(6);
 
-    Task7 task7 = new Task7();
-    Task7.checkNum(6);
+        System.out.println("Задание 7:");
+        Tasks.checkNum(6);
 
-    Task8 task8 = new Task8();
-    Task8.printString("Hello!", 5);
+        System.out.println("Задание 8:");
+        Tasks.printString("Hello!", 5);
 
-    Task9 task9 = new Task9();
-    System.out.println(Task9.checkYear(1203));
+        System.out.println("Задание 9:");
+        System.out.println(Tasks.checkYear(1203));
+
+        System.out.println("Задание 10:");
+        Tasks.Array();
+
+        System.out.println("Задание 11:");
+        Tasks.Array100();
+
+        System.out.println("Задание 12:");
+        Tasks.ArrayIncr();
+
+        System.out.println("Задание 13:");
+        Tasks.ArrayDig();
+
+        System.out.println("Задание 14:");
+        Tasks.ArrayCreate(5, 10);
+
     }
 }
