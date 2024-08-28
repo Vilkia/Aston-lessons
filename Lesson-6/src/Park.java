@@ -15,9 +15,9 @@ public class Park {
 
         // Метод для вывода информации об аттракционе
         public void displayInfo() {
-            System.out.println("Attraction Name: " + name);
-            System.out.println("Working Hours: " + workingHours);
-            System.out.println("Price: " + price);
+            System.out.println("Название  аттракциона: " + name);
+            System.out.println("Время работы : " + workingHours);
+            System.out.println("Цена: " + price);
             System.out.println();
         }
     }
