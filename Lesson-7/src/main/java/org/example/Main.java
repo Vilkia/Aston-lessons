@@ -130,7 +130,7 @@ public class Main {
         System.out.println("Всего собак: " + Dog.getDogCount());
         System.out.println("Всего котов: " + Cat.getCatCount());
 
-        // Создание массива котов и миски
+
         Cat[] cats = {
                 new Cat("Мурка"),
                 new Cat("Барсик"),
