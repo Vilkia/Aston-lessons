@@ -1,9 +1,9 @@
 package org.example;
 class Animal {
-    protected String name;
-    protected int maxRunDistance;
-    protected int maxSwimDistance;
-    protected static int animalCount = 0;
+    private String name;
+    private final int maxRunDistance;
+    private final int maxSwimDistance;
+    private static int animalCount = 0;
 
     public Animal(String name, int maxRunDistance, int maxSwimDistance) {
         this.name = name;
@@ -31,6 +31,10 @@ class Animal {
     public static int getAnimalCount() {
         return animalCount;
     }
+
+    public String getName() {
+        return name;
+    }
 }
 
 class Dog extends Animal {
@@ -49,7 +53,7 @@ class Dog extends Animal {
 class Cat extends Animal {
     private static int catCount = 0;
     private boolean isFull = false;
-    private static final int FOOD_PER_MEAL = 5; // Количество еды за одно кормление
+    private static final int FOOD_PER_MEAL = 5;
 
     public Cat(String name) {
         super(name, 200, 0);
@@ -58,18 +62,18 @@ class Cat extends Animal {
 
     @Override
     public void swim(int distance) {
-        System.out.println(name + " не умеет плавать.");
+        System.out.println(getName() + " не умеет плавать.");
     }
 
     public boolean eat(Bowl bowl) {
         if (!isFull && bowl.getFoodAmount() >= FOOD_PER_MEAL) {
             if (bowl.decreaseFood(FOOD_PER_MEAL)) {
                 isFull = true;
-                System.out.println(name + " поел " + FOOD_PER_MEAL + " единиц еды и теперь сыт.");
+                System.out.println(getName() + " поел " + FOOD_PER_MEAL + " единиц еды и теперь сыт.");
                 return true;
             }
         } else {
-            System.out.println(name + " не может поесть, в миске недостаточно еды.");
+            System.out.println(getName() + " не может поесть, в миске недостаточно еды.");
             return false;
         }
         return false;
@@ -88,7 +92,7 @@ class Bowl {
     private int foodAmount;
 
     public Bowl(int foodAmount) {
-        this.foodAmount = Math.max(foodAmount, 0); // Защита от отрицательного количества еды
+        this.foodAmount = Math.max(foodAmount, 0);
     }
 
     public int getFoodAmount() {
@@ -126,26 +130,26 @@ public class Main {
         System.out.println("Всего собак: " + Dog.getDogCount());
         System.out.println("Всего котов: " + Cat.getCatCount());
 
-        // Создание массива котов и миски
+
         Cat[] cats = {
                 new Cat("Мурка"),
                 new Cat("Барсик"),
                 new Cat("Рыжик")
         };
-        Bowl bowl = new Bowl(5);  // В миске 15 единиц еды (достаточно для 3 кормлений)
+        Bowl bowl = new Bowl(5);
 
-        // Попробуем накормить всех котов
+
         for (Cat cat : cats) {
             cat.eat(bowl);
         }
 
-        // Выводим информацию о сытости котов
+
         System.out.println("\nСостояние котов:");
         for (Cat cat : cats) {
-            System.out.println(cat.name + (cat.isFull() ? " сыт" : " голоден"));
+            System.out.println(cat.getName() + (cat.isFull() ? " сыт" : " голоден"));
         }
 
-        // Добавление еды в миску и повторная попытка накормить котов
+
         bowl.addFood(5);
         for (Cat cat : cats) {
             if (!cat.isFull()) {
@@ -153,10 +157,11 @@ public class Main {
             }
         }
 
-        // Выводим информацию о сытости котов после добавления еды
+
         System.out.println("\nСостояние котов после добавления еды:");
         for (Cat cat : cats) {
-            System.out.println(cat.name + (cat.isFull() ? " сыт" : " голоден"));
+            System.out.println(cat.getName() + (cat.isFull() ? " сыт" : " голоден"));
         }
     }
 }
+
